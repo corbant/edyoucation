@@ -17,7 +17,7 @@ export default function Home() {
       <Head>
         <title>edYOUcation</title>
         <meta name="description" content="The next generation of education" />
-        <link rel="icon" href="/logo-image-black.ico" />
+        <link rel="icon" href="/favicon16.png" sizes="16x16"/>
       </Head>
 
       <Header>

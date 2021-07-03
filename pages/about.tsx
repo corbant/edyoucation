@@ -8,8 +8,8 @@ const About = () => {
         <Layout>
             <Head>
                 <title>About</title>
-                <meta name="description" content="About our team" />
-                <link rel="icon" href="/logo-image-black.ico" />
+                <meta name="description" content="About us" />
+                <link rel="icon" href="/favicon16.png" sizes="16x16"/>
             </Head>
 
             <Header>
