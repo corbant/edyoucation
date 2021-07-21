@@ -12,5 +12,6 @@ module.exports = withAntdLess({
 
   webpack(config) {
     return config;
-  }
+  },
+  reactStrictMode: true
 });

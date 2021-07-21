@@ -3,6 +3,7 @@ import Navbar from "../components/navbar"
 import { Layout, Carousel, Input } from 'antd'
 const { Header, Content, Footer, Sider } = Layout
 const { Search } = Input
+
 const Explore = () => {
 
     const carouselContentStyle = {

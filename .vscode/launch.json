@@ -6,13 +6,33 @@
     "configurations": [
         {
             "type": "node",
-            "request": "attach",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
+            "request": "launch",
+            "name": "Next: Node",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run", "dev"
             ],
-            "preLaunchTask": "launch debug",
-            "port": 9229
+            "port": 9229,
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Next: Chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/src",
+            "sourceMaps": true,
+            "breakOnLoad": true,
+            "sourceMapPathOverrides": {
+                "webpack:///./src/*": "${webRoot}/dist/*",
+                "webpack:///src/*": "${webRoot}/dist/*"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Next: Full",
+            "configurations": ["Next: Chrome", "Next: Node"]
         }
     ]
 }

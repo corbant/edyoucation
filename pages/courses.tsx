@@ -5,10 +5,10 @@ import Navbar from '../components/navbar'
 const { Header, Content, Footer } = Layout
 
 type CoursesProps = {
-    popularCategories: [{ category: string, image: string}]
+    categories: [{ category: string, image: string}]
 }
 
-const Courses = ({popularCategories}: CoursesProps) => {
+const Courses = ({categories: categories}: CoursesProps) => {
     return(
         <Layout>
             <Head>
@@ -21,17 +21,15 @@ const Courses = ({popularCategories}: CoursesProps) => {
             </Header>
 
             <Content>
-                <div style={{maxWidth: 1080, margin: "0 auto"}}>
-                    <List grid={{gutter: 16, xs: 2, sm: 2, md: 3, lg: 3, xl: 3, xxl: 3}} dataSource={popularCategories} header={<h3>Popular Categories:</h3>} renderItem={item => (
+                <div style={{maxWidth: 1080, margin: "40px auto"}}>
+                    <Search placeholder="Find Courses"/>
+                    <List grid={{gutter: 16, xs: 2, sm: 2, md: 3, lg: 3, xl: 3, xxl: 3}} dataSource={categories} header={<h3>Categories:</h3>} renderItem={item => (
                         <List.Item>
                             <Card hoverable cover={<img src={item.image}/>}>
                                 <Card.Meta title={item.category}/>
                             </Card>
                         </List.Item>
                     )}/>
-
-                    <h3>Find the perfect course</h3>
-                    <Search />
 
                     
                 </div>
@@ -42,36 +40,40 @@ const Courses = ({popularCategories}: CoursesProps) => {
 }
 
 export async function getStaticProps() {
-    const popularCategories = [
+    const categories = [
         {
-            category: "Category 1",
+            category: "Science",
             image: "https://designshack.net/wp-content/uploads/placehold.jpg"
         },
         {
-            category: "Category 2",
+            category: "Technology",
             image: "https://designshack.net/wp-content/uploads/placehold.jpg"
         },
         {
-            category: "Category 3",
+            category: "Engineering",
             image: "https://designshack.net/wp-content/uploads/placehold.jpg"
         },
         {
-            category: "Category 4",
+            category: "Math",
             image: "https://designshack.net/wp-content/uploads/placehold.jpg"
         },
         {
-            category: "Category 5",
+            category: "Language Arts",
             image: "https://designshack.net/wp-content/uploads/placehold.jpg"
         },
         {
-            category: "Category 6",
+            category: "Economics",
+            image: "https://designshack.net/wp-content/uploads/placehold.jpg"
+        },
+        {
+            category: "History",
             image: "https://designshack.net/wp-content/uploads/placehold.jpg"
         }
     ]
 
     return {
         props: {
-            popularCategories: popularCategories
+            categories: categories
         },
         revalidate: 60
     }
