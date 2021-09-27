@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import { Layout, List, Card, Input } from 'antd'
 const { Search } = Input
 import Navbar from '../components/navbar'
@@ -25,7 +26,7 @@ const Courses = ({categories: categories}: CoursesProps) => {
                     <Search placeholder="Find Courses"/>
                     <List grid={{gutter: 16, xs: 2, sm: 2, md: 3, lg: 3, xl: 3, xxl: 3}} dataSource={categories} header={<h3>Categories:</h3>} renderItem={item => (
                         <List.Item>
-                            <Card hoverable cover={<img src={item.image}/>}>
+                            <Card hoverable cover={<Image src={item.image}/>}>
                                 <Card.Meta title={item.category}/>
                             </Card>
                         </List.Item>
