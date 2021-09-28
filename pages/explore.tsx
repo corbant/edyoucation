@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Navbar from "../components/navbar"
+import Navbar from "../components/Navbar"
 import { Layout, Carousel, Input } from 'antd'
 const { Header, Content, Footer, Sider } = Layout
 const { Search } = Input

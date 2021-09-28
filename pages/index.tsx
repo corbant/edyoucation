@@ -2,21 +2,23 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import Link from 'next/link'
-import { Layout, Menu, Typography, Button } from 'antd'
+import { Layout, Menu, Typography, Button, Space } from 'antd'
 import { ArrowRightOutlined } from '@ant-design/icons'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import LandingNavbar from '../components/landingNavbar'
+import LandingNavbar from '../components/LandingNavbar'
 import { useEffect } from 'react'
 const { Header, Content, Footer } = Layout;
 const { Title, Text } = Typography
 require('../styles/variables.less')
 import bookLover from '../public/book-lover.svg'
 import tutorialVideo from '../public/tutorial-video.svg'
+import { ScreenSize, useScreenSize } from '../hooks/screen-size'
 
 export default function Home() {
   const controls = useAnimation();
   const {ref, inView} = useInView({ threshold: 0.2 });
+  const screenSize = useScreenSize();
 
   const infoArea = {
     hidden: { opacity: 0, x: -100 },
@@ -49,37 +51,42 @@ export default function Home() {
           <Title level={1} style={{color: "white", textAlign: 'center', fontSize: "7vw",}}>
             Education for everyone
           </Title>
-          <Button shape="round" type="primary" size="large">Start Learning</Button>
+          <Link href="/courses" passHref>
+            <Button shape="round" type="primary" size={screenSize < ScreenSize.MD ? "middle" : "large"}>Start Learning</Button>
+          </Link>
         </div>
-        <div style={{background: "rgb(0 26 31)", height: "100vh", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column"}}>
+        <div style={{background: "rgb(0 26 31)", height: "120vh", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column"}}>
           <motion.div ref={ref} initial='hidden' animate={controls} variants={infoArea} style={{ height: "100%", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-around", flexDirection: "column"}}>
             <motion.div variants={info} style={{display: "flex", flexDirection: "row", width: "100%", justifyContent: "space-around"}}>
               <Image src={bookLover}/>
-              <div>
+              <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
                 <Title level={3} style={{color: "white"}}>No more using 10 year old textbooks</Title>
                 <Text style={{color: "white"}}>Always have the latest and greatest learning material at your fingertips with our evergreen textbooks written and maintained by the community.</Text>
               </div>
             </motion.div>
             <motion.div variants={info} style={{display: "flex", flexDirection: "row", width: "100%", justifyContent: "space-around"}}>
-              <div>
+              <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
                 <Title level={3} style={{color: "white"}}>Video Content</Title>
                 <Text style={{color: "white"}}>Check out our community video content designed with you in mind.</Text>
               </div>
               <Image src={tutorialVideo}/>
             </motion.div>
             <motion.div variants={info} style={{display: "flex", flexDirection: "row"}}>
-              <div>
+              <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
                 <Title level={3} style={{color: "white"}}>No more using 10 year old textbooks</Title>
                 <Text style={{color: "white"}}>Always have the latest and greatest learning material at your fingertips with our evergreen textbooks.</Text>
               </div>
             </motion.div>
+            
           </motion.div>
         </div>
         <div style={{background: "linear-gradient(rgb(0 26 31), rgb(0 75 148)", height: "100vh", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column"}}>
-          <Title style={{color: "white"}}>
+          <Title style={{color: "white", fontSize: "5vw"}}>
             So what are you waiting for?
           </Title>
-          <Button shape="round" type="ghost" size="large" style={{color: "white"}}>Lets get started</Button>
+          <Link href="/courses" passHref>
+            <Button shape="round" type="ghost" size={screenSize < ScreenSize.MD ? "middle" : "large"} style={{color: "white"}}>Lets get started</Button>
+          </Link>
 
         </div>
 

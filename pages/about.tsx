@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Layout } from "antd"
-import LandingNavbar from '../components/landingNavbar';
+import LandingNavbar from '../components/LandingNavbar';
 const { Header, Content, Footer } = Layout;
 
 const About = () => {

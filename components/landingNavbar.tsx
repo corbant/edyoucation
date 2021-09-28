@@ -60,7 +60,7 @@ const LandingNavbar = ({selectedKey}: LandingNavbarProps) => {
                             </Button>   
                         </div>
                         <div style={{ float: "right"}}>
-                            <Link href="/courses">
+                            <Link href="/courses" passHref>
                                 <Button shape="round" type="ghost" style={{color: "white"}}>
                                     Courses
                                     <ArrowRightOutlined />

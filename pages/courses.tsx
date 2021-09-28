@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { Layout, List, Card, Input } from 'antd'
 const { Search } = Input
-import Navbar from '../components/navbar'
+import Navbar from '../components/Navbar'
+import MainFooter from '../components/MainFooter'
 const { Header, Content, Footer } = Layout
 
 type CoursesProps = {
@@ -16,24 +17,24 @@ const Courses = ({categories: categories}: CoursesProps) => {
                 <meta name="description" content="Explore content" />
                 <link rel="icon" href="/favicon16.png" />
             </Head>
-            <Header>
-                <Navbar/>
-            </Header>
+            
+            <Navbar/>
 
             <Content>
                 <div style={{maxWidth: 1080, margin: "40px auto"}}>
                     <Search placeholder="Find Courses"/>
-                    <List grid={{gutter: 16, xs: 2, sm: 2, md: 3, lg: 3, xl: 3, xxl: 3}} dataSource={categories} header={<h3>Categories:</h3>} renderItem={item => (
+                    <List grid={{gutter: 16, xs: 2, sm: 2, md: 3, lg: 3, xl: 3, xxl: 3}} dataSource={categories} header={<h3>Subjects:</h3>} renderItem={item => (
                         <List.Item>
                             <Card hoverable cover={<img src={item.image}/>}>
                                 <Card.Meta title={item.category}/>
                             </Card>
                         </List.Item>
                     )}/>
-
-                    
                 </div>
             </Content>
+
+            <MainFooter/>
+
         </Layout>
 
     );
