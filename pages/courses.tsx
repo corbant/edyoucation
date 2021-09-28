@@ -4,6 +4,7 @@ import { Layout, List, Card, Input } from 'antd'
 const { Search } = Input
 import Navbar from '../components/Navbar'
 import MainFooter from '../components/MainFooter'
+import image from 'next/image'
 const { Header, Content, Footer } = Layout
 
 type CoursesProps = {
@@ -26,7 +27,7 @@ const Courses = ({categories: categories}: CoursesProps) => {
                     <Search placeholder="Find Courses"/>
                     <List grid={{gutter: 16, xs: 2, sm: 2, md: 3, lg: 3, xl: 3, xxl: 3}} dataSource={categories} header={<h3>Subjects:</h3>} renderItem={item => (
                         <List.Item>
-                            <Card hoverable cover={<Image src={item.image} unoptimized/>}>
+                            <Card hoverable cover={<Image src={item.image} unoptimized width={300} height={300}/>}>
                                 <Card.Meta title={item.category}/>
                             </Card>
                         </List.Item>
